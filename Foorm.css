@@ -1,0 +1,22 @@
+.field-error {
+    position: relative;
+    display: inline;
+}
+
+.field-error-message {
+    display: none;
+    position: absolute;
+    width: 220px;
+    background: #f00;
+    top: -26px;
+    left: 0px;
+    margin: 0px; /* With no margins, element will hover directly above the input element.  Add margin to tweak this positioning. */
+    padding: 5px 8px;
+    font-family: arial;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    -webkit-box-shadow: 1px 1px 3px rgba(50, 50, 50, 0.5);
+    -moz-box-shadow:    1px 1px 3px rgba(50, 50, 50, 0.5);
+    box-shadow:         1px 1px 3px rgba(50, 50, 50, 0.5);
+}
