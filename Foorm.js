@@ -70,6 +70,8 @@ var Foorm = function Foorm(formId, fieldData) {
         // Update each of Foorm's field objects.
         for (var i in fields) {
             fields[i].value = $('#' + fields[i].name).val();
+
+            console.log(fields[i].name + ':' + fields[i].value);
         }
 
         // Update each of validate.js's field objects.
@@ -148,14 +150,13 @@ var Foorm = function Foorm(formId, fieldData) {
      * - rules      => The rules string recognizable by validate.js
      * - value      => The current value of the field, provided by updateFieldValues()
      */
-    var fields = fieldData;
+    var fields = $.parseJSON(fieldData);
 
     /**
      * A jQuery-tailored, comma-separated selector list of the
      * ids of all of our fields.
      */
     var fieldIdsString = extractFieldIdsString();
-    console.log(fieldIdsString);
 
     /**
      * The array of HTMl elements provided by jQuery for our
@@ -164,9 +165,6 @@ var Foorm = function Foorm(formId, fieldData) {
      * @param HTMLCollection
      */
     var fieldElements = $(fieldIdsString);
-    console.log('Field Ids: ' + fieldIdsString);
-    console.log('Fields');
-    console.log(fieldElements);
 
     /**
      * An instance of validate.js's FormValidator object to do
@@ -280,6 +278,7 @@ var Foorm = function Foorm(formId, fieldData) {
      * display individual field errors before each field.
      */
     $(fieldElements).each(function(){
+        console.log($(this));
         $(this).before('<div id="field-error-' + $(this).attr('id') + '" class="field-error"><div class="field-error-message">Message</div></div>');
     });
 
